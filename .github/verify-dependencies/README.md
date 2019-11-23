@@ -1,0 +1,7 @@
+# jactor-rises/actions/verify-dependencies
+
+This action will verify that the project object model (pom) contains no SNAPSHOT dependencies.
+
+Requeres a github runner with maven and a github artifact being build with maven
+
+No inputs are required
