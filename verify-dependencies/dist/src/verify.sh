@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 mvn -B dependency:tree | tee dependency.tree
 
 if [[ $? -gt 0 ]]
@@ -18,4 +18,3 @@ elif [[ ${COUNT} -gt 0 ]]
     >&2 echo ERROR: Found $COUNT SNAPSHOT dependencies
     exit 1;
 fi
-d
