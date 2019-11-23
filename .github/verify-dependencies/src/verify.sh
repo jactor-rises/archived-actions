@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 mvn -B dependency:tree | tee dependency.tree
 
 if [[ $? -gt 0 ]]
