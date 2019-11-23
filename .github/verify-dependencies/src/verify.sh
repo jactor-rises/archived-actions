@@ -18,4 +18,3 @@ elif [[ ${COUNT} -gt 0 ]]
     >&2 echo ERROR: Found $COUNT SNAPSHOT dependencies
     exit 1;
 fi
-d
