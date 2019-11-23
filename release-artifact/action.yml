@@ -1,0 +1,9 @@
+name: 'Release artifact'
+description: 'Releases an artifact, pushing tag for release, and commits wanted files to git history. See `release-artifact/README.md` for details'
+inputs:
+  json-filename:
+    required: true
+    description: 'The file name of the generated json file of this release, see `release-artifact/README.md` for details'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
