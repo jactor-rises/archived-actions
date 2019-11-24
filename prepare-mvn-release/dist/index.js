@@ -196,6 +196,15 @@ const exec = __webpack_require__(120);
 
 async function run() {
   try {
+    // set the file name to use for the tag value
+    const tagFileName = core.getInput("tag-file-name");
+
+    if (tagFileName != null) {
+      exportTagFileName(tagFileName)
+    } else {
+      exportTagFileName(".tag-artifact")
+    }
+
     // Set the src-path
     const src = __webpack_require__.ab + "src";
     core.debug(`src: ${src}`);
@@ -205,6 +214,10 @@ async function run() {
   } catch (error) {
     core.setFailed(error.message);
   }
+}
+
+async function exportTagFileName(tagFileName) {
+  await exec.exec("export", "TAG_FILE_NAME=" + tagFileName);
 }
 
 // noinspection JSIgnoredPromiseFromCall

@@ -1,5 +1,9 @@
 name: 'Prepare release'
 description: 'Prepares release of a maven built project, get version tag for release and bumps the next SNAPSHOT version'
+inputs:
+  tag-file-name:
+    description: 'The file name produced with the content of the tag being released'
+    default: '.tag_artifact'
 runs:
   using: 'node12'
   main: 'dist/index.js'
