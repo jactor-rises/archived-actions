@@ -8,4 +8,4 @@ Requires a github runner with maven and a github artifact being built
 with maven and runs on an environment which support bash-scripts
 
 No inputs are required, but if not the file names for tag-name and commit
-message are provided, the default options will be used, ses `action.yml`
+message are provided, the default options will be used, see `action.yml`
