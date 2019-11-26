@@ -1,0 +1,11 @@
+{
+  "name": "released-git-history",
+  "version": "1.0.0",
+  "dependencies": {
+    "@actions/core": "latest",
+    "@actions/exec": "latest",
+    "@actions/io": "latest",
+    "@actions/github": "latest",
+    "process": "latest"
+  }
+}
