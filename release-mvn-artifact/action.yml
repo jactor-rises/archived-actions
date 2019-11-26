@@ -1,5 +1,0 @@
-name: 'Release maven artifact'
-description: 'Releases a maven artifact with `mvn deploy`'
-runs:
-  using: 'node12'
-  main: 'dist/index.js'
