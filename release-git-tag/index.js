@@ -5,8 +5,7 @@ const process = require("process");
 async function run() {
   try {
     // the tag filename
-    const token = core.getInput('repo-token', {required: true});
-    const taggedRelease = core.getInput("release-version", {required: true});
+    const releaseVersion = core.getInput("release-version", {required: true});
 
   } catch (error) {
     core.setFailed(error.message);

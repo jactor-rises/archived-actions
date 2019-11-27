@@ -1,5 +1,9 @@
-name: 'Tag github artifact'
-description: 'Adds a git-tag for  for a released artifact. This includes committing Prepares release of a maven built project, writes tag  for the release to file specified as environment variable and bumps the next SNAPSHOT version'
+name: Tag github artifact
+description: Adds a git-tag for an artifact to be released. It also requires an env with a valid $GITHUB_TOKEN
+inputs:
+  release-version:
+    description: the version to be released
+    required: true
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: node12
+  main: dist/index.js
