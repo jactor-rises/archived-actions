@@ -7,5 +7,5 @@ version will be bumped, ie. the pom.xml will be modified.
 Requires a github runner with maven and a github artifact being built
 with maven and runs on an environment which support bash-scripts.
 
-No inputs are required, but the script will expect an environment 
-variable for the filename that will hold the release tag.
+No inputs are required, but the script will output the tagged release
+and the new SNAPSHOT version.

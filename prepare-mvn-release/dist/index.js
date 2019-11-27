@@ -193,23 +193,66 @@ module.exports = require("events");
 
 const core = __webpack_require__(827);
 const exec = __webpack_require__(120);
+const fs = __webpack_require__(747);
+const process = __webpack_require__(765);
 
 async function run() {
   try {
-    // Set the src-path
-    const src = __webpack_require__.ab + "src";
-    core.debug(`src: ${src}`);
+    core.debug(`filepath: ${__dirname}`);
 
-    // Execute verify bash script
+    // Execute prepare-release bash script
     await exec.exec(__webpack_require__.ab + "prepare-release.sh");
+
+    readPreparation('.tagged-release', 'tagged-release');
+    readPreparation('.new-snapshot-version', 'new-snapshot-version');
+
   } catch (error) {
     core.setFailed(error.message);
   }
 }
 
+function readPreparation(filename, output) {
+  prepareRelease(`${process.env.GITHUB_WORKSPACE}/${filename}`).then(
+      value => {
+        core.info('the new snapshot version: ' + value);
+        core.setOutput(output, value);
+      }
+  );
+}
+
+function prepareRelease(filepath) {
+  const encoding = {encoding: 'utf-8'};
+
+  return new Promise((resolve, reject) => {
+        fs.readFile(filepath, encoding, function (error, data) {
+          if (error) {
+            console.log(error);
+            reject(error)
+          } else {
+            resolve(data)
+          }
+        })
+      }
+  );
+}
+
 // noinspection JSIgnoredPromiseFromCall
 run();
 
+
+/***/ }),
+
+/***/ 747:
+/***/ (function(module) {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ 765:
+/***/ (function(module) {
+
+module.exports = require("process");
 
 /***/ }),
 

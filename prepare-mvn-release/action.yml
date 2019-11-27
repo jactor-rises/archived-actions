@@ -1,5 +1,10 @@
-name: 'Prepare release'
-description: 'Prepares release of a maven built project, writes tag  for the release to file specified as environment variable and bumps the next SNAPSHOT version'
+name: Prepare release
+description: Prepares release of a maven built project, outputs the tagged release
+outputs:
+  tagged-release:
+    description: the tag for this release
+  new-snapshot-version:
+    description: the snapshot version after release
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: node12
+  main: dist/index.js
