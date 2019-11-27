@@ -1,8 +1,8 @@
 name: Prepare release
 description: Prepares release of a maven built project, outputs the tagged release
 outputs:
-  tagged-release:
-    description: the tag for this release
+  release-version:
+    description: the release version
   new-snapshot-version:
     description: the snapshot version after release
 runs:
