@@ -1,11 +1,11 @@
 const core = require("@actions/core");
-const fs = require("fs");
-const process = require("process");
+const exec = require("@actions/exec");
 
 async function run() {
   try {
-    // the tag filename
-    const releaseVersion = core.getInput("release-version", {required: true});
+
+    // Execute tag bash script
+    await exec.exec(`${__dirname}/tag.sh`);
 
   } catch (error) {
     core.setFailed(error.message);
