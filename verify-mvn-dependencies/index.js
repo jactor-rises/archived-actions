@@ -4,7 +4,7 @@ const exec = require("@actions/exec");
 async function run() {
   try {
 
-    // Execute verify bash script
+    // Execute verify-dependencies bash script
     await exec.exec(`${__dirname}/verify-dependencies.sh`);
 
   } catch (error) {
