@@ -5,7 +5,7 @@ async function run() {
   try {
 
     // Execute release bash script
-    await exec.exec(`${src}/release.sh`);
+    await exec.exec(`${__dirname}/release.sh`);
 
   } catch (error) {
     core.setFailed(error.message);

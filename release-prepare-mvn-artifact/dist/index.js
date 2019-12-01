@@ -197,14 +197,9 @@ const exec = __webpack_require__(120);
 async function run() {
   try {
 
-<<<<<<< HEAD:release-mvn-artifact/dist/index.js
     // Execute release bash script
-    await exec.exec(__webpack_require__.ab + "release.sh");
-=======
-    // Execute verify bash script
-    await exec.exec(__webpack_require__.ab + "prepare-release.sh");
+    await exec.exec(`${__dirname}/release.sh`);
 
->>>>>>> master:release-prepare-mvn-artifact/dist/index.js
   } catch (error) {
     core.setFailed(error.message);
   }
@@ -212,6 +207,7 @@ async function run() {
 
 // noinspection JSIgnoredPromiseFromCall
 run();
+
 
 /***/ }),
 
