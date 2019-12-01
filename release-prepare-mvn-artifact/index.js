@@ -4,8 +4,8 @@ const exec = require("@actions/exec");
 async function run() {
   try {
 
-    // Execute release bash script
-    await exec.exec(`${__dirname}/release.sh`);
+    // Execute prepare-release bash script
+    await exec.exec(`${__dirname}/prepare-release.sh`);
 
   } catch (error) {
     core.setFailed(error.message);

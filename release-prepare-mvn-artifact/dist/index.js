@@ -197,8 +197,8 @@ const exec = __webpack_require__(120);
 async function run() {
   try {
 
-    // Execute release bash script
-    await exec.exec(`${__dirname}/release.sh`);
+    // Execute prepare-release bash script
+    await exec.exec(__webpack_require__.ab + "prepare-release.sh");
 
   } catch (error) {
     core.setFailed(error.message);
