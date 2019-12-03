@@ -10,4 +10,7 @@ without having to run a the actual workflow.
 All inputs to these actions are therefore
 - Binaries for the build, ex: maven
 - Environment variables
-- files on the filesystem which are produced by the other scripts
+- files on the filesystem which are outputs from other scripts (actions)
+
+All communications between actions are done in the filesystem. If an action requires input from another action, this is
+governed by an environment variable stating the name of the file used for input/output.
