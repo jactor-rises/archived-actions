@@ -15,12 +15,7 @@ jobs:
       - run: npm install
       - run: npm i -g @zeit/ncc
       - name: debug workspace
-        run: |
-          env
-          pwd
-          ls -all
-          cd release-mvn-pkg
-          ls -all
+        run: env
       - name: install release-git-tag
         run: |
           cd $RUNNER_WORKSPACE/actions/release-git-tag
