@@ -1,0 +1,56 @@
+name: continious integration
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    name: build actions with ncc
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+      - run: npm install
+      - run: npm i -g @zeit/ncc
+      - name: debug workspace
+        run: |
+          env
+          pwd
+          ls -all
+          cd release-mvn-pkg
+          ls -all
+      - name: install release-git-tag
+        run: |
+          cd $RUNNER_WORKSPACE/actions/release-git-tag
+          npm install
+          ncc build index.js
+      - name: install release-mvn-artifact
+        run: |
+          cd $RUNNER_WORKSPACE/actions/release-mvn-artifact
+          npm install
+          ncc build index.js
+      - name: install release-prepare-mvn-artifact
+        run: |
+          cd $RUNNER_WORKSPACE/actions/release-prepare-mvn-artifact
+          npm install
+          ncc build index.js
+      - name: install verify-mvn-dependencies
+        run: |
+          cd $RUNNER_WORKSPACE/actions/verify-mvn-dependencies
+          npm install
+          ncc build index.js
+      - run: echo ${{github.ref}}
+      - name: commit ncc build in bidrag-actions on master branch
+        if: github.ref == 'refs/heads/master'
+        uses: EndBug/add-and-commit@v2.1.0
+        with:
+          author_name: Tor Egil Jacobsen
+          author_email: tor.egil.jacobsen@gmail.com
+          message: "Fresh build of actions using npm and ncc"
+          path: "."
+          pattern: "."
+          force: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
