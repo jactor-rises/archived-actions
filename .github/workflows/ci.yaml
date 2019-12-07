@@ -31,8 +31,10 @@ jobs:
         env:
           ACTION_FOLDER: verify-mvn-dependencies
 
+      - name: debug branch
+        run: echo "branch - ${{ github.ref }}"
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/feature-build-action'
+        if: github.ref == 'refs/heads/feature-build-actions'
         uses: EndBug/add-and-commit@v2.1.0
         with:
           author_name: Tor Egil Jacobsen
