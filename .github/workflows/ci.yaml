@@ -19,15 +19,15 @@ jobs:
       - name: debug workspace
         run: env
       - name: install action-build-commit
-        uses: jactor-rises/actions/action-build-commit@feature-build-action
+        uses: jactor-rises/actions/action-build-commit@feature-build-actions
         env:
           ACTION_FOLDER: action-build-commit
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/action-build-commit@feature-build-action
+        uses: jactor-rises/actions/action-build-commit@feature-build-actions
         env:
           ACTION_FOLDER: release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/action-build-commit@feature-build-action
+        uses: jactor-rises/actions/action-build-commit@feature-build-actions
         env:
           ACTION_FOLDER: verify-mvn-dependencies
 
