@@ -1,0 +1,5 @@
+name: Build Action
+description: Builds actions on https://github.com/jactor-rises/actions
+runs:
+  using: node12
+  main: dist/index.js
