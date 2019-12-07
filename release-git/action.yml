@@ -1,5 +1,5 @@
-name: Tag github artifact
-description: Adds a git-tag for an artifact to be released. It also requires some env variables - $GITHUB_TOKEN (authorization) and &TAG_FILE_NAME
+name: Release via. git
+description: Releases a version of the source code with git. It also requires two env variables - $GITHUB_TOKEN (authorization) and &RELEASE_VERSION_FILE (version number of the release)
 runs:
   using: node12
   main: dist/index.js

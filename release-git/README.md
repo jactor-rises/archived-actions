@@ -1,11 +1,12 @@
-# jactor-rises/actions/prepare-mvn-release
+# jactor-rises/actions/release-git
 
-This action will prepare a maven artifact to be released. It will get the
-release version from the expected SNAPSHOT version of the project. This
-version will be bumped, ie. the pom.xml will be modified.
+This action will release a version via the git-history, i.e. commit any
+changes of the source-tree done by previous actions (if any changes) and
+also adding a tag for the release.
 
-Requires a github runner with maven and a github artifact being built
-with maven and runs on an environment which support bash-scripts.
+Requires a github runner with a github artifact and an environemnt where
+a bash shell can run with git interactions.
 
 No inputs are required, but the script will expect an environment 
-variable for the filename that will hold the release tag.
+variable for the filename that will hold the release version and the
+github token.
