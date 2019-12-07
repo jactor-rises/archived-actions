@@ -1,0 +1,5 @@
+name: Tag github artifact
+description: Adds a git-tag for an artifact to be released. It also requires some env variables - $GITHUB_TOKEN (authorization) and &TAG_FILE_NAME
+runs:
+  using: node12
+  main: dist/index.js
