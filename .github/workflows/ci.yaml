@@ -18,6 +18,8 @@ jobs:
       - run: npm i -g @zeit/ncc
       - name: debug workspace
         run: env
+      - name: debug github event
+        run: cat "$GITHUB_EVENT_PATH"
       - name: install action-build-commit
         uses: jactor-rises/actions/action-build-commit@master
         env:
