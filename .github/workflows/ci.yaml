@@ -24,6 +24,10 @@ jobs:
         uses: jactor-rises/actions/action-build-commit@master
         env:
           ACTION_FOLDER: action-build-commit
+      - name: install release-git
+        uses: jactor-rises/actions/action-build-commit@master
+        env:
+          ACTION_FOLDER: release-git
       - name: install release-prepare-mvn-artifact
         uses: jactor-rises/actions/action-build-commit@master
         env:
