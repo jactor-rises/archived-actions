@@ -5,7 +5,7 @@ async function run() {
   try {
 
     // Execute tag bash script
-    await exec.exec(`${__dirname}/tag.sh`);
+    await exec.exec(`${__dirname}/release-git.sh`);
 
   } catch (error) {
     core.setFailed(error.message);
