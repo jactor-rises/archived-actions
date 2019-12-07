@@ -1,0 +1,45 @@
+name: continious integration
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+
+  build-actions:
+    runs-on: ubuntu-16.04
+    name: build actions with ncc
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm i -g @zeit/ncc
+      - name: debug workspace
+        run: env
+      - name: install action-build-commit
+        uses: jactor-rises/actions/action-build-commit@feature-build-actions
+        env:
+          ACTION_FOLDER: action-build-commit
+      - name: install release-prepare-mvn-artifact
+        uses: jactor-rises/actions/action-build-commit@feature-build-actions
+        env:
+          ACTION_FOLDER: release-prepare-mvn-artifact
+      - name: install verify-mvn-dependencies
+        uses: jactor-rises/actions/action-build-commit@feature-build-actions
+        env:
+          ACTION_FOLDER: verify-mvn-dependencies
+
+      - name: commit ncc build in jactor-rises/actions on master branch
+        if: github.ref == 'refs/heads/master'
+        uses: EndBug/add-and-commit@v2.1.0
+        with:
+          author_name: Tor Egil Jacobsen
+          author_email: tor.egil.jacobsen@nav.no
+          message: "Fresh build of actions using npm and ncc after commit on master by ${{ github.actor }}"
+          path: "."
+          pattern: "."
+          force: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
