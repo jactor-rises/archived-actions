@@ -1,5 +1,5 @@
 {
-  "name": "prepare-mvn-release",
+  "name": "released-git-tag",
   "version": "1.0.0",
   "dependencies": {
     "@actions/core": "^1.2.0",
