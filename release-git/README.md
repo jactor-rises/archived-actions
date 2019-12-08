@@ -4,9 +4,10 @@ This action will release a version via the git-history, i.e. commit any
 changes of the source-tree done by previous actions (if any changes) and
 also adding a tag for the release.
 
-Requires a github runner with a github artifact and an environemnt where
-a bash shell can run with git interactions.
+Requires a github runner with a github artifact and an environment where
+a bash shell can run with a git client.
 
-No inputs are required, but the script will expect an environment 
-variable for the filename that will hold the release version and the
-github token.
+This action is strongly influenced by [Endbug/add-and-commit][https://github.com/EndBug/add-and-commit]
+but do not require running a docker image and do not require to specify
+the name and email of the committer, but will use the information from
+the author of the head commit on this action run.

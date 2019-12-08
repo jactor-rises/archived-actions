@@ -36,14 +36,11 @@ jobs:
         uses: jactor-rises/actions/action-build-commit@master
         env:
           ACTION_FOLDER: verify-mvn-dependencies
-
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/master'
-        uses: EndBug/add-and-commit@v2.1.0
+        if: github.ref == 'refs/heads/feature-release-git'
+        uses: jactor-rises/actions/action-build-commit@feature-release-git
         with:
-          author_name: Tor Egil Jacobsen
-          author_email: tor.egil.jacobsen@nav.no
-          message: "Fresh build of actions using npm and ncc after commit on master by ${{ github.actor }}"
+          message: "Fresh build of actions using npm and ncc after commit on master by {0}"
           path: "."
           pattern: "."
           force: false
