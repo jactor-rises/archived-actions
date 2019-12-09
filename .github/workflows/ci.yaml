@@ -19,15 +19,15 @@ jobs:
       - name: install action-build-for-commit
         uses: jactor-rises/actions/action-build-for-commit@feature-input
         with:
-          action-folder: action-build-for-commit
+          actionFolder: action-build-for-commit
       - name: install release-prepare-mvn-artifact
         uses: jactor-rises/actions/action-build-for-commit@feature-input
         with:
-          action-folder: release-prepare-mvn-artifact
+          actionFolder: release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
         uses: jactor-rises/actions/action-build-for-commit@feature-input
         with:
-          action-folder: verify-mvn-dependencies
+          actionFolder: verify-mvn-dependencies
 
       - name: commit ncc build in jactor-rises/actions on master branch
         if: github.ref == 'refs/heads/master'

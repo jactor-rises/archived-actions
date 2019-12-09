@@ -1,7 +1,7 @@
 name: Build Action
 description: Builds actions on https://github.com/jactor-rises/actions
 inputs:
-  action-folder:
+  actionFolder:
     description: the folder where the action has its source code
     required: true
     default: "."
