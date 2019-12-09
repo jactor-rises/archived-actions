@@ -704,7 +704,7 @@ async function run() {
   try {
 
     // Execute tag bash script
-    await exec.exec(`${__dirname}/dist/build-action.sh`);
+    await exec.exec(__webpack_require__.ab + "build-action.sh");
 
   } catch (error) {
     core.setFailed(error.message);
