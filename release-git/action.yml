@@ -1,0 +1,25 @@
+name: Release via. git
+description: Releases a version of the source code with git. It also requires the variables - $GITHUB_TOKEN (for authorization)
+inputs:
+  message:
+    description: the commit message used to commit. Will replace {0} with author of head commit and {1} with tag (from tag-file-name)
+    required: true
+    default: Changes added after execution of release-git
+  tag-file-name:
+    description: the tag to be pushed to git
+    required: false
+  force:
+    description: Whether to use the force option on git add, in order to bypass eventual gitignores
+    required: false
+    default: false
+  path:
+    description: The path to stage files from
+    required: true
+    default: '.'
+  pattern:
+    description: The pattern that mathces file names
+    required: false
+    default: "*.*"
+runs:
+  using: node12
+  main: dist/index.js
