@@ -16,22 +16,18 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm i -g @zeit/ncc
-      - name: debug workspace
-        run: env
-      - name: debug github event
-        run: cat "$GITHUB_EVENT_PATH"
-      - name: install action-build-commit
-        uses: jactor-rises/actions/action-build-commit@master
-        env:
-          ACTION_FOLDER: action-build-commit
+      - name: install action-build-for-commit
+        uses: jactor-rises/actions/action-build-for-commit@master
+        with:
+          action_folder: action-build-for-commit
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/action-build-commit@master
-        env:
-          ACTION_FOLDER: release-prepare-mvn-artifact
+        uses: jactor-rises/actions/action-build-for-commit@master
+        with:
+          action_folder: release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/action-build-commit@master
-        env:
-          ACTION_FOLDER: verify-mvn-dependencies
+        uses: jactor-rises/actions/action-build-for-commit@master
+        with:
+          action_folder: verify-mvn-dependencies
 
       - name: commit ncc build in jactor-rises/actions on master branch
         if: github.ref == 'refs/heads/master'
@@ -39,7 +35,7 @@ jobs:
         with:
           author_name: Tor Egil Jacobsen
           author_email: tor.egil.jacobsen@nav.no
-          message: "Fresh build of actions using npm and ncc after commit on master by ${{ github.actor }}"
+          message: "Fresh build of actions after commit on master by ${{ github.actor }}"
           path: "."
           pattern: "."
           force: false
