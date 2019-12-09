@@ -21,15 +21,15 @@ jobs:
       - name: debug github event
         run: cat "$GITHUB_EVENT_PATH"
       - name: install action-build-commit
-        uses: jactor-rises/actions/action-build-commit@master
+        uses: jactor-rises/actions/action-build-commit@feature-input
         with:
           action-folder: action-build-commit
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/action-build-commit@master
+        uses: jactor-rises/actions/action-build-commit@feature-input
         with:
           action-folder: release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/action-build-commit@master
+        uses: jactor-rises/actions/action-build-commit@feature-input
         with:
           action-folder: verify-mvn-dependencies
 
