@@ -22,16 +22,16 @@ jobs:
         run: cat "$GITHUB_EVENT_PATH"
       - name: install action-build-commit
         uses: jactor-rises/actions/action-build-commit@master
-        env:
-          ACTION_FOLDER: action-build-commit
+        with:
+          action-folder: action-build-commit
       - name: install release-prepare-mvn-artifact
         uses: jactor-rises/actions/action-build-commit@master
-        env:
-          ACTION_FOLDER: release-prepare-mvn-artifact
+        with:
+          action-folder: release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
         uses: jactor-rises/actions/action-build-commit@master
-        env:
-          ACTION_FOLDER: verify-mvn-dependencies
+        with:
+          action-folder: verify-mvn-dependencies
 
       - name: commit ncc build in jactor-rises/actions on master branch
         if: github.ref == 'refs/heads/master'
