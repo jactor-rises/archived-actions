@@ -17,15 +17,15 @@ jobs:
           node-version: '12.x'
       - run: npm i -g @zeit/ncc
       - name: install action-build-for-commit
-        uses: jactor-rises/actions/action-build-for-commit@feature-input
+        uses: jactor-rises/actions/action-build-for-commit@master
         with:
           action_folder: action-build-for-commit
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/action-build-for-commit@feature-input
+        uses: jactor-rises/actions/action-build-for-commit@master
         with:
           action_folder: release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/action-build-for-commit@feature-input
+        uses: jactor-rises/actions/action-build-for-commit@master
         with:
           action_folder: verify-mvn-dependencies
 
