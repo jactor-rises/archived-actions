@@ -18,10 +18,10 @@ jobs:
       - run: npm i -g @zeit/ncc
       - name: debug workspace
         run: env
-      - name: install action-build-commit
+      - name: install action-build-for-commit
         uses: jactor-rises/actions/action-build-for-commit@feature-input
         with:
-          action-folder: action-build-commit
+          action-folder: action-build-for-commit
       - name: install release-prepare-mvn-artifact
         uses: jactor-rises/actions/action-build-for-commit@feature-input
         with:
