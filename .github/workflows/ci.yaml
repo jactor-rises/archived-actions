@@ -16,8 +16,6 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm i -g @zeit/ncc
-      - name: debug workspace
-        run: env
       - name: install action-build-for-commit
         uses: jactor-rises/actions/action-build-for-commit@feature-input
         with:
