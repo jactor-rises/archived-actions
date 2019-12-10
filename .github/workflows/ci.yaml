@@ -16,6 +16,12 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm i -g @zeit/ncc
+      - name: step for testing of commit action
+        uses: jactor-rises/actions/release-git@feature-release-git
+        with:
+          message: "Fresh build after commit on master by ${{ github.actor }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: install action-build-for-commit
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
@@ -34,7 +40,7 @@ jobs:
           action_folder: verify-mvn-dependencies
 
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/feature-release-git'
+        if: github.ref == 'refs/heads/master'
         uses: jactor-rises/actions/release-git@feature-release-git
         with:
           message: "Fresh build after commit on master by ${{ github.actor }}"

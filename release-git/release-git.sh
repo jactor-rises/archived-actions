@@ -38,10 +38,8 @@ echo "Setting up commit message"
 if [[ -f "$INPUT_TAG_FILE_NAME" ]]
 then
   TAG=$(cat "$INPUT_TAG_FILE_NAME")
-  INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed '/{1}/'"$TAG"'/')
+  INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed '/{}/'"$TAG"'/')
 fi
-
-INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed '/{0}/'"$GITHUB_ACTOR"'/")
 
 echo "Commit message to use '$INPUT_MESSAGE'"
 
