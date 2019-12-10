@@ -33,5 +33,6 @@ jobs:
         with:
           message: "Fresh build after commit on master by ${{ github.actor }}"
           path: "."
+          force: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
