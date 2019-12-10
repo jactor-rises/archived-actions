@@ -9,5 +9,5 @@ a bash shell can run with a git client.
 
 This action is strongly influenced by [Endbug/add-and-commit][https://github.com/EndBug/add-and-commit]
 but do not require running a docker image and do not require to specify
-the name and email of the committer, but will use the information from
-the author of the head commit on this action run.
+the name and email of the committer. This information will be gathered
+from use the information from the author of the head commit.

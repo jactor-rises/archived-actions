@@ -20,6 +20,10 @@ jobs:
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
           action_folder: action-build-for-commit
+      - name: install release-git
+        uses: jactor-rises/actions/action-build-for-commit@release-git
+        with:
+          action_folder: release-git
       - name: install release-prepare-mvn-artifact
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
@@ -30,12 +34,10 @@ jobs:
           action_folder: verify-mvn-dependencies
 
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/master'
-        uses: EndBug/add-and-commit@v2.1.0
+        if: github.ref == 'refs/heads/release-git'
+        uses: jactor-rises/actions/action-build-for-commit@release-git
         with:
-          author_name: Tor Egil Jacobsen
-          author_email: tor.egil.jacobsen@nav.no
-          message: "Fresh build of actions after commit on master by ${{ github.actor }}"
+          message: "Fresh build after commit on master by ${{ github.actor }}"
           path: "."
           pattern: "."
           force: false
