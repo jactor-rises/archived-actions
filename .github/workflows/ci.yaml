@@ -34,7 +34,7 @@ jobs:
           action_folder: verify-mvn-dependencies
 
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/release-git'
+        if: github.ref == 'refs/heads/feature-release-git'
         uses: jactor-rises/actions/release-git@feature-release-git
         with:
           message: "Fresh build after commit on master by ${{ github.actor }}"
