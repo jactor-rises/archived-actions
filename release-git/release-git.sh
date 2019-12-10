@@ -5,8 +5,8 @@ echo "installing jq..."
 sudo apt-get install jq
 
 echo "fetching author name and email"
-AUTHOR_EMAIL=$(cat $GITHUB_EVENT_PATH | jq '.head_commit.author.email')
-AUTHOR_NAME=$(cat $GITHUB_EVENT_PATH | jq '.head_commit.author.name')
+AUTHOR_EMAIL=$(cat $GITHUB_EVENT_PATH | sed 's/"//g' | jq '.head_commit.author.email')
+AUTHOR_NAME=$(cat $GITHUB_EVENT_PATH | sed 's/"//g' | jq '.head_commit.author.name')
 
 echo "'$AUTHOR_NAME' and '$AUTHOR_EMAIL'"
 
@@ -33,13 +33,15 @@ add() {
   fi
 }
 
+echo "Setting up commit message"
+
 if [[ -f "$INPUT_TAG_FILE_NAME" ]]
 then
   TAG=$(cat "$INPUT_TAG_FILE_NAME")
-  INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed "/{1}/$TAG/")
+  INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed '/{1}/'"$TAG"'/')
 fi
 
-INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed "/{0}/$GITHUB_ACTOR/")
+INPUT_MESSAGE=$(echo "$INPUT_MESSAGE" | sed '/{0}/'"$GITHUB_ACTOR"'/")
 
 echo "Commit message to use '$INPUT_MESSAGE'"
 
