@@ -35,7 +35,7 @@ jobs:
 
       - name: commit ncc build in jactor-rises/actions on master branch
         if: github.ref == 'refs/heads/release-git'
-        uses: jactor-rises/actions/action-build-for-commit@release-git
+        uses: jactor-rises/actions/release-git@release-git
         with:
           message: "Fresh build after commit on master by ${{ github.actor }}"
           path: "."
