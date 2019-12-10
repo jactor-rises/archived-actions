@@ -1,15 +1,6 @@
 #!/bin/sh
 set -eu
 
-echo "installing jq..."
-sudo apt-get install jq
-
-echo "fetching author, name and email"
-AUTHOR_EMAIL=$(cat "$GITHUB_EVENT_PATH" | jq '.head_commit.author.email' | sed 's/\"//g' )
-AUTHOR_NAME=$(cat "$GITHUB_EVENT_PATH" | jq '.head_commit.author.name' | sed 's/\"//g' )
-
-echo "'$AUTHOR_NAME' and '$AUTHOR_EMAIL'"
-
 # Set up .netrc file with GitHub credentials
 git_setup() {
   cat <<- EOF > $HOME/.netrc
@@ -32,6 +23,12 @@ add() {
     else find $INPUT_PATH -name "$INPUT_PATTERN" | while read x; do git add $x; done
   fi
 }
+
+echo "fetching author, name and email"
+AUTHOR_EMAIL=$(cat "$GITHUB_EVENT_PATH" | jq '.head_commit.author.email' | sed 's/\"//g' )
+AUTHOR_NAME=$(cat "$GITHUB_EVENT_PATH" | jq '.head_commit.author.name' | sed 's/\"//g' )
+
+echo "'$AUTHOR_NAME' and '$AUTHOR_EMAIL'"
 
 echo "Setting up commit message"
 
