@@ -4,9 +4,9 @@ set -eu
 echo "installing jq..."
 sudo apt-get install jq
 
-echo "fetching author name and email"
-AUTHOR_EMAIL=$(cat "$GITHUB_EVENT_PATH" | sed 's/\"//g' | jq '.head_commit.author.email')
-AUTHOR_NAME=$(cat "$GITHUB_EVENT_PATH" | sed 's/\"//g' | jq '.head_commit.author.name')
+echo "fetching author, name and email"
+AUTHOR_EMAIL=$(cat "$GITHUB_EVENT_PATH" | jq '.head_commit.author.email' | sed 's/\"//g' )
+AUTHOR_NAME=$(cat "$GITHUB_EVENT_PATH" | jq '.head_commit.author.name' | sed 's/\"//g' )
 
 echo "'$AUTHOR_NAME' and '$AUTHOR_EMAIL'"
 
