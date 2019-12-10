@@ -16,12 +16,6 @@ jobs:
         with:
           node-version: '13.x'
       - run: npm i -g @zeit/ncc
-      - name: step for testing of commit action
-        uses: jactor-rises/add-and-commit@master
-        with:
-          message: "Fresh build after commit on master by ${{ github.actor }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: install action-build-for-commit
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
@@ -34,3 +28,10 @@ jobs:
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
           action_folder: verify-mvn-dependencies
+      - name: step for testing of commit action
+        uses: jactor-rises/add-and-commit@master
+        with:
+          message: "Fresh build after commit on master by ${{ github.actor }}"
+          path: "."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
