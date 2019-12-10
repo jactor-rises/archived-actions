@@ -20,6 +20,10 @@ jobs:
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
           action_folder: action-build-for-commit
+      - name: install release-git
+        uses: jactor-rises/actions/action-build-for-commit@master
+        with:
+          action_folder: release-git
       - name: install release-prepare-mvn-artifact
         uses: jactor-rises/actions/action-build-for-commit@master
         with:
