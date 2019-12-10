@@ -17,7 +17,7 @@ jobs:
           node-version: '13.x'
       - run: npm i -g @zeit/ncc
       - name: step for testing of commit action
-        uses: jactor-rises/actions/release-git@feature-release-git
+        uses: jactor-rises/add-and-commit@master
         with:
           message: "Fresh build after commit on master by ${{ github.actor }}"
         env:
