@@ -67,7 +67,7 @@ async function run() {
   try {
 
     // Execute tag bash script
-    await exec.exec(__webpack_require__.ab + "build-action.sh");
+    await exec.exec(__webpack_require__.ab + "build-artifact.sh");
 
   } catch (error) {
     core.setFailed(error.message);

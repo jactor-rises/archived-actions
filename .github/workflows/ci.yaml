@@ -16,26 +16,26 @@ jobs:
         with:
           node-version: '13.x'
       - run: npm i -g @zeit/ncc
-      - name: install action-build-for-commit
-        uses: jactor-rises/actions/action-build-for-commit@master
+      - name: install build-node-artifact
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
-          action_folder: action-build-for-commit
+          artifact_folder: actions/build-node-artifact
       - name: install release-git
-        uses: jactor-rises/actions/action-build-for-commit@master
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
-          action_folder: release-git
+          artifact_folder: actions/release-git
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/action-build-for-commit@master
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
-          action_folder: release-prepare-mvn-artifact
+          artifact_folder: actions/release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/action-build-for-commit@master
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
-          action_folder: verify-mvn-dependencies
+          artifact_folder: actions/verify-mvn-dependencies
       - name: step for testing of commit action
         uses: jactor-rises/actions/release-git@feature-release-git
         with:
-          message: "Fresh build after commit on master by ${{ github.actor }}"
+          message: "Fresh build after commit by ${{ github.actor }}"
           path: "."
           force: false
         env:

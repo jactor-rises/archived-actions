@@ -1,10 +1,9 @@
-# jactor-rises/actions/action-build-commit
+# jactor-rises/actions/build-node-artifact
 
-This action will build an action under jactor-rises/actions. This will be
-done using node and ncc as build tool.
+This action will build a node artifact. This will be done using node and
+ncc as build tool.
 
-Requires an environment variable stating the name of the action folder in
-this repository.
+Requires a runner which can run bash scripts.
 
-No additionals inputs are required, but this action will not commit the
-result of the action build.
+The folder for where the node artifact are to be built is equired, but
+this action will not commit the result of the build.
