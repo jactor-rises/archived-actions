@@ -1,8 +1,8 @@
-name: Release via. git
-description: Releases a version of the source code with git. It also requires the variables - $GITHUB_TOKEN (for authorization)
+name: Source history with git
+description: Commits changes and create tags (if present) with git. It also requires the variables - $GITHUB_TOKEN (for authorization)
 inputs:
   message:
-    description: the commit message used to commit. Will replace {} with content of tag_file_name
+    description: the commit message used to commit. Will replace {} with content of tag_file_name (when {} is present)
     required: true
     default: Changes added after execution of release-git
   tag_file_name:

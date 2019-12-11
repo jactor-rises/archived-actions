@@ -17,26 +17,27 @@ jobs:
           node-version: '13.x'
       - run: npm i -g @zeit/ncc
       - name: install build-node-artifact
-        uses: jactor-rises/actions/build-node-artifact@feature-refac
+        uses: jactor-rises/actions/build-node-artifact@fmaster
         with:
           artifact_folder: actions/build-node-artifact
-      - name: install release-git
-        uses: jactor-rises/actions/build-node-artifact@feature-refac
+      - name: install source-history
+        uses: jactor-rises/actions/source-history@feature-history
         with:
-          artifact_folder: actions/release-git
+          artifact_folder: actions/source-history
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/build-node-artifact@feature-refac
+        uses: jactor-rises/actions/build-node-artifact@fmaster
         with:
           artifact_folder: actions/release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/build-node-artifact@feature-refac
+        uses: jactor-rises/actions/build-node-artifact@fmaster
         with:
           artifact_folder: actions/verify-mvn-dependencies
       - name: step for testing of commit action
-        uses: jactor-rises/actions/release-git@feature-release-git
+        uses: jactor-rises/actions/release-git@feature-history
         with:
           message: "Fresh build after commit by ${{ github.actor }}"
           path: "."
+          pattern: "."
           force: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
