@@ -33,7 +33,7 @@ jobs:
         with:
           artifact_folder: actions/verify-mvn-dependencies
       - name: step for testing of commit action
-        uses: jactor-rises/actions/release-git@feature-history
+        uses: jactor-rises/actions/source-history@feature-history
         with:
           message: "Fresh build after commit by ${{ github.actor }}"
           path: "."
