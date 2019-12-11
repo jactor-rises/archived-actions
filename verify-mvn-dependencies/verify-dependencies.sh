@@ -7,7 +7,7 @@ if [[ $? -gt 0 ]]
     exit 1;
 fi
 
-export COUNT="$(cat < dependency.tree | grep -e '|' -e '+' | grep -c SNAPSHOT)"
+COUNT="$(cat < dependency.tree | grep -e '|' -e '+' | grep -c SNAPSHOT)"
 
 if [[ ${COUNT} -eq 1 ]]
   then
@@ -18,3 +18,5 @@ elif [[ ${COUNT} -gt 0 ]]
     >&2 echo ERROR: Found $COUNT SNAPSHOT dependencies
     exit 1;
 fi
+
+echo No SNAPSHOT dependencies found
