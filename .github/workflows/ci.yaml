@@ -17,7 +17,7 @@ jobs:
           node-version: '13.x'
       - run: npm i -g @zeit/ncc
       - name: install build-node-artifact
-        uses: jactor-rises/actions/build-node-artifact@fmaster
+        uses: jactor-rises/actions/build-node-artifact@master
         with:
           artifact_folder: actions/build-node-artifact
       - name: install source-history
@@ -25,11 +25,11 @@ jobs:
         with:
           artifact_folder: actions/source-history
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/build-node-artifact@fmaster
+        uses: jactor-rises/actions/build-node-artifact@master
         with:
           artifact_folder: actions/release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/build-node-artifact@fmaster
+        uses: jactor-rises/actions/build-node-artifact@master
         with:
           artifact_folder: actions/verify-mvn-dependencies
       - name: step for testing of commit action
