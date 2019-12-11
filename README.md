@@ -9,7 +9,7 @@ without having to run a github workflow file.
 ### Input/output
 All inputs to these actions are therefore
 - Binaries for the build, ex: maven
-- Environment variables
+- Environment variables aka. inputs on actions
 - files on the filesystem which are outputs from other scripts (actions)
 
 All communications between actions are done in the filesystem. If an action requires input from another action, this is
