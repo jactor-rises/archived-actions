@@ -17,26 +17,26 @@ jobs:
           node-version: '13.x'
       - run: npm i -g @zeit/ncc
       - name: install build-node-artifact
-        uses: jactor-rises/actions/build-node-artifact@master
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
           artifact_folder: actions/build-node-artifact
+      - name: install release-git
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
+        with:
+          artifact_folder: actions/release-git
       - name: install release-prepare-mvn-artifact
-        uses: jactor-rises/actions/build-node-artifact@master
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
           artifact_folder: actions/release-prepare-mvn-artifact
       - name: install verify-mvn-dependencies
-        uses: jactor-rises/actions/build-node-artifact@master
+        uses: jactor-rises/actions/build-node-artifact@feature-refac
         with:
           artifact_folder: actions/verify-mvn-dependencies
-      - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/master'
-        uses: EndBug/add-and-commit@v2.1.0
+      - name: step for testing of commit action
+        uses: jactor-rises/actions/release-git@feature-release-git
         with:
-          author_name: Tor Egil Jacobsen
-          author_email: tor.egil.jacobsen@nav.no
-          message: "Fresh build with npm and ncc after commit on master by ${{ github.actor }}"
+          message: "Fresh build after commit by ${{ github.actor }}"
           path: "."
-          pattern: "."
           force: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
