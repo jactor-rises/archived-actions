@@ -36,8 +36,5 @@ jobs:
         uses: jactor-rises/actions/source-history@feature-history
         with:
           message: "Fresh build after commit by ${{ github.actor }}"
-          path: "."
-          pattern: "."
-          force: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
