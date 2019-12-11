@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Building action: $INPUT_ARTIFACT_FOLDER"
+echo "Building artifact: $INPUT_ARTIFACT_FOLDER"
 
 cd "$RUNNER_WORKSPACE/$INPUT_ARTIFACT_FOLDER"
 
