@@ -29,7 +29,6 @@ jobs:
         with:
           artifact_folder: actions/verify-mvn-dependencies
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/master'
         uses: jactor-rises/add-and-commit@feature-node
         with:
           message: "Fresh build with npm and ncc after commit on master"
