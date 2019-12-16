@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-16.04
     name: build actions with ncc
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: '13.x'
+          node-version: 13.x
       - run: npm i -g @zeit/ncc
       - name: install build-node-artifact
         uses: jactor-rises/actions/build-node-artifact@master
@@ -29,14 +29,10 @@ jobs:
         with:
           artifact_folder: actions/verify-mvn-dependencies
       - name: commit ncc build in jactor-rises/actions on master branch
-        if: github.ref == 'refs/heads/master'
-        uses: EndBug/add-and-commit@v2.1.0
+        uses: EndBug/add-and-commit@v2.3.0
         with:
-          author_name: Tor Egil Jacobsen
-          author_email: tor.egil.jacobsen@nav.no
-          message: "Fresh build with npm and ncc after commit on master by ${{ github.actor }}"
+          message: "Fresh build with npm and ncc after commit by ${{ github.actor }}"
           path: "."
           pattern: "."
-          force: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
