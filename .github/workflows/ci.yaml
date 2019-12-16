@@ -14,7 +14,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: '13.x'
+          node-version: 13.x
       - run: npm i -g @zeit/ncc
       - name: install build-node-artifact
         uses: jactor-rises/actions/build-node-artifact@master
