@@ -1,6 +1,6 @@
 # GitHub Actions for jactor-rises
 
-![](https://github.com/jactor-rises/actions/workflows/continious%20integration/badge.svg)
+![](https://github.com/jactor-rises/actions/workflows/build%20actions/badge.svg)
 
 Github Actions for my workflow files
 
